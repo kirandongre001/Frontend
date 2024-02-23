@@ -17,7 +17,34 @@ const HomePage = () => {
           
         </div>
       </header> */}
+      {/* <h1> SWIFT RIDES</h1> */}
+
+      <div className="animation1">
+
+<div className="wrap">
+<div className="role">
+  <img src="http://icons.iconarchive.com/icons/icons-land/transporter/128/Taxi-Right-Yellow-icon.png" id="first"/>
+
+      </div>
+      
+      
       <h1> SWIFT RIDES</h1>
+
+          <div className="role1">
+            <img src="http://icons.iconarchive.com/icons/icons-land/transporter/128/Taxi-Left-Yellow-icon.png" id="second"/>
+          </div>
+
+          <div className="role2">
+            <img src="https://img.icons8.com/android/96/000000/airplane-landing.png" id="plane"/>
+          </div>
+
+          <div className="role3">
+            <img src="https://img.icons8.com/cotton/110/000000/pickup.png"/>
+                </div>
+               </div>
+          </div>
+
+
 
       <main>
         <section className="hero">

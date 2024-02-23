@@ -1,6 +1,14 @@
 import { Form, Input, Select } from "antd";
 import { useEffect, useReducer, useState } from "react";
 import CarOwnerNav from "./CarOwnerNav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+
 //import mystate from './CarOwnerLandingPage';
 //import carOwner from './CarOwnerLandingPage'
 const initialStateVehicle = {
@@ -138,6 +146,25 @@ export default function AddVehicle() {
                     <b style={{ color: 'green' }}>{msg}</b>
                 </div>
             </Form>
+            <footer>
+        <div className="container4">
+          <p>
+            &copy; 2024 SWIFT RIDES. All rights reserved.
+          </p>
+          <a href="https://www.youtube.com/" className="youtube social">
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
+          </a>
+          <a href="https://www.facebook.com/" className="facebook social">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com/" className="twitter social">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com/" className="instagram social">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>{" "}
+        </div>
+      </footer>
         </div>
         </>
 

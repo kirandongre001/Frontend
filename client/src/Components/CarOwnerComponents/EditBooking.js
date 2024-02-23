@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Button } from "antd";
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
-import CarUserNav from "./CarUserNav";
+import CarUserNav from "../CarUserComponents/CarUserNav";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,44 +12,103 @@ import {
     faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function ViewUserRides() {
+export default function Edit() {
+  const location = useLocation(); //taking data from other component
+  const cid = useParams(); //take data from url
+  const [bookings, setBookings] = useState([]);
+  // const [formdetails, setformdetails] = useState({
+  //   cid: "",
+  //   cfname: "",
+  //   age: "",
+  //   weight: "",
+  //   bloodgrp: "",
+  //   gender: "",
+  //   dob: "",
+  // });
 
-    const [bookings, setBookings] = useState([]);
-    const [flag, setFlag] = useState(false);
-    let navigate = useNavigate();
-
-    useEffect(() => {
-        const pid = JSON.parse(localStorage.getItem("loggedCarUser")).id;
-        console.log(pid)
-        fetch(`http://localhost:8080/getAllBookingForUser?pid=${pid}`)
-            .then((res) => res.json())
-            .then((bookings) => { setBookings(bookings); 
-            if (bookings.length > 0) setFlag(true) })
-    }, [])
-
-    const cancelBooking=async(e)=>{
-       const bid=e.target.value;
-       const response=await axios.delete(`http://localhost:8080/deleteBooking/${bid}`)
-       console.log(response)
-       window.location.reload()
-       }
-
-    return (
-        <div>
+  const data = location.state.pdata;
+  const user = location.state.userinfo;
+  console.log(data);
+  // const queryString = Object.keys(user)
+  //   .map((key) => ${encodeURIComponent(key)}=${encodeURIComponent(user[key])})
+  //   .join("&");
+  // console.log(queryString);
+  // //
+  // let obj = {
+  //   cid: data.cid,
+  //   age: data.age,
+  //   bloodgrp: data.bloodgrp,
+  //   cfname: data.cfname,
+  //   dob: data.dob,
+  //   gender: data.gender,
+  //   weight: data.weight,
+  // };
+  // useEffect(() => {
+  //   setformdetails({ ...obj });
+  // }, []);
+  // console.log(obj);
+  // const navigate = useNavigate();
+  // const addChild = async (e) => {
+  //   e.preventDefault();
+  //   if (
+  //     formdetails.cid === "" ||
+  //     formdetails.cfname === "" ||
+  //     formdetails.age === "" ||
+  //     formdetails.weight === "" ||
+  //     formdetails.bloodgrp === "" ||
+  //     formdetails.gender === "" ||
+  //     formdetails.dob === ""
+  //   ) {
+  //     swal("pls fill all the fieds");
+  //     return;
+  //   }
+  //   if (formdetails.age === "" || parseFloat(formdetails.age) <= 0) {
+  //     swal("Please enter a valid age.");
+  //     return;
+  //   }
+  //   if (formdetails.weight === "" || parseFloat(formdetails.weight) <= 0) {
+  //     swal("Please enter a valid weight.");
+  //     return;
+  //   }
+  //   if (!/^[a-zA-Z]+$/.test(formdetails.cfname)) {
+  //     swal("Enter valid name");
+  //     return;
+  //   } else {
+  //     try {
+  //       const response = await userService.updateChildInfo(
+  //         cid.cid,
+  //         formdetails
+  //       );
+  //       if (response.status === 200) {
+  //         swal("Good job!", "Updated Successfully!", "success");
+  //         navigate("/ChildDashboard/" + queryString);
+  //       }
+  //     } catch (error) {
+  //       if (error.response && error.response.status === 404) {
+  //         swal("something went wrong try agin later");
+  //       } else {
+  //         swal(
+  //           "An error occurred while updating information. Please try again later."
+  //         );
+  //       }
+  //     }
+  //   }
+  // };
+  return (
+    <>
+     <div>
             <CarUserNav/>
-            <h2 style={{ marginTop: '40px', backgroundColor: '#4682a9', height: '60px', color: "whitesmoke" }}>PREVIOUS BOOKINGS</h2>
+            {/* <h2 style={{ marginTop: '40px', backgroundColor: '#4682a9', height: '60px', color: "whitesmoke" }}>PREVIOUS BOOKINGS</h2>
 
 
             <div className="message" style={{ display: flag ? "none" : "block" }}>
                 <h3>No Booking History</h3>
                 <p>Start With your First Booking</p>
                 <Button type="button" className="btn btn-warning" onClick={() => { navigate("/Main") }}>Search Ride</Button>
-            </div>
+            </div> */}
 
             <div className="bookings">
-                {
-                    flag &&
-                    (
+                
                         <div>
                             <table border="1" className="table table-primary table-hover">
 
@@ -85,15 +144,10 @@ export default function ViewUserRides() {
                                                 <td>{b.total_price}</td>
                                                 <td>{b.status}</td>
                                                 <td> 
-                                                   <button type="button" name="btn" value={b.id} id="delete"  className="btn btn-danger" onClick={cancelBooking}>Cancel</button>&nbsp;&nbsp;&nbsp;
-                                                   
-                                                    {/* <Link to={`/edit/${b.id}`} state={{pdata:b}}>
-                                                    <button type="button" name="btn" id="edit" className="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;
-                                                   </Link>  */}
-
-                                                   <Link to="/review">
-                                                    <button type="button" name="btn" id="view" className="btn btn-info">Review</button>
-                                                   </Link> 
+                              
+                                                    <Link to={`/U_rides`} state={{pdata:b}}>
+                                                    <button type="button" name="btn" id="edit" className="btn btn-primary">Update</button>&nbsp;&nbsp;&nbsp;
+                                                   </Link>
                                                 </td>
 
                                             </tr>
@@ -103,12 +157,8 @@ export default function ViewUserRides() {
                                 </tbody>
                                 
                             </table>
-                            <p>Start A New Journey</p>
-                            <Button type="button" className="btn btn-warning" onClick={() => { navigate("/Main") }}>Search Ride</Button>
-
                         </div>
-                    )
-                }
+                    
             </div>
             <footer>
         <div className="container4">
@@ -130,6 +180,9 @@ export default function ViewUserRides() {
         </div>
       </footer>
         </div>
+    </>
+  );
+}
 
-    )
+{
 }

@@ -1,9 +1,36 @@
-import { Card, Col, Row } from "antd";
+import { App, Card, Col, Row } from "antd";
 import contact from "./contact.jpg";
+import CarOwnerNav from "./CarOwnerComponents/CarOwnerNav";
+import CarUserNav from "./CarUserComponents/CarUserNav";
+import AdminNav from "./AdminFuncCompo/AdminNav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Contact()
 {
+   // const type = (JSON.parse(localStorage.getItem("loggedUser")).roll_id.id);
     return (
+        <>
+           {/* {
+               <AppNav />
+            }
+           {
+               type == 1 &&
+               <AdminNav />
+            }
+            {
+                type === 2 &&
+                <CarOwnerNav />
+            }
+            {
+                type == 3 &&
+                <CarUserNav />
+            } */}
         <div>
             
         <div className="contact">
@@ -47,5 +74,6 @@ export default function Contact()
             </div>
           </footer>
          </div>
+        </>
     )
 }

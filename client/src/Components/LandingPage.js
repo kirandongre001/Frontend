@@ -8,6 +8,13 @@ import { Link, useNavigate } from "react-router-dom";
 //import { useSelector } from "react-redux";
 import CarUserNav from "./CarUserComponents/CarUserNav";
 import Icon, { CloseCircleFilled } from '@ant-design/icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 const initialState = {
   startCity: null,
@@ -295,9 +302,9 @@ export default function LandingPage(props) {
                           <Form.Item label="Number of Seats :" labelCol={{ span: 24 }} >
                             <Select name="seats" onChange={(e) => { setSeats(e) }}>
                               <Select.Option value="1">1</Select.Option>
-                              {/* <Select.Option value="2">2</Select.Option>
+                              <Select.Option value="2">2</Select.Option>
                               <Select.Option value="3">3</Select.Option>
-                              <Select.Option value="4">4</Select.Option> */}
+                              <Select.Option value="4">4</Select.Option>
                             </Select>
 
                             <Button type="button" style={{ backgroundColor: 'gray' }} onClick={() => { addBook(r) }}>Book</Button>
@@ -315,6 +322,25 @@ export default function LandingPage(props) {
             </Row>
           </div>
         }
+      <footer>
+        <div className="container4">
+          <p>
+            &copy; 2024 SWIFT RIDES. All rights reserved.
+          </p>
+          <a href="https://www.youtube.com/" className="youtube social">
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
+          </a>
+          <a href="https://www.facebook.com/" className="facebook social">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com/" className="twitter social">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com/" className="instagram social">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>{" "}
+        </div>
+      </footer>
       </div>
     </>
   );

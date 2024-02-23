@@ -61,7 +61,7 @@ nav ul li a:hover {
   background-position: center;
   color: #8052d5;
   text-align: left;
-  padding: 100px 100px;
+  padding-top: 400px;
   
 
 }
@@ -75,12 +75,15 @@ nav ul li a:hover {
   background-color: #ff5722;
   color: #fff;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 20px ;
   border-radius: 5px;
+  
 }
 
 .btn-primary:hover {
   background-color: #f4511e;
+  margin-left: 300px;
+  
 }
 
 .about {
@@ -134,4 +137,119 @@ nav ul li a:hover {
 }
 .homepage{
   margin-bottom: 20px;
+}
+
+.animation1 body {
+  background: rgb(8, 7, 7);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.animation1 h1 {
+  font-size: 80px;
+  padding-bottom: 80px;
+  color: #6b6868;
+}
+
+.role {
+  overflow-x: hidden;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#first {
+  height: 128px;
+  width: 128px;
+  position: absolute;
+  left: -500px;
+  animation: roling 7s ease-in infinite;
+  /* top: 270px; */
+  top: 220px;
+}
+
+@keyframes roling {
+  0% {
+    left: -500px;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.role1 {
+  width: 100vw;
+  position: absolute;
+  top: 200px;
+}
+
+#second {
+  height: 128px;
+  width: 128px;
+  position: absolute;
+  animation: roling1 10s ease-in-out infinite;
+  right: -200px;
+}
+
+@keyframes roling1 {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 105%;
+  }
+}
+
+.wrap {
+  background: url(https://t3.ftcdn.net/jpg/02/38/16/06/240_F_238160640_O7yVyntTmIikIejXgdoARTQW5siJ3QVH.jpg);
+  height: 200px;
+  width: 100vw;
+  padding-bottom: 240px;
+}
+.role2 {
+  position: absolute;
+  top: -400px;
+  animation: plane 9s linear infinite;
+  z-index: 5;
+}
+
+@keyframes plane {
+  0% {
+    top: -100px;
+    left: 30%;
+  }
+  25% {
+    top: -20px;
+    left: 45%;
+  }
+  50% {
+    top: 20px;
+    left: 65%;
+  }
+  75% {
+    top: 35px;
+    left: 85%;
+  }
+  100% {
+    left: 110%;
+    top: 50px;
+  }
+}
+
+.role3 {
+  position: absolute;
+  /* top: 292px; */
+  top: 250px;
+
+  animation: pickup 5s linear infinite;
+}
+
+@keyframes pickup {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 110%;
+  }
 }

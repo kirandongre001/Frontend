@@ -2,6 +2,13 @@ import CarOwnerNav from "./CarOwnerComponents/CarOwnerNav";
 import CarUserNav from "./CarUserComponents/CarUserNav";
 import aboutI from "../Assests/6.svg"
 import AdminNav from "./AdminFuncCompo/AdminNav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function About() {
         //const type = (JSON.parse(localStorage.getItem("loggedUser")).roll_id.id);

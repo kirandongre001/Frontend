@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../logo3.jpg";
 
+
 export default function AdminNav() {
     const mystate = useSelector((state) => state.logged);
     return (
@@ -29,7 +30,7 @@ export default function AdminNav() {
                     <Link to="/logout">Logout</Link>
                 </div>
             </div>
-
+        
         </div>
     );
 }

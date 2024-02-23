@@ -10,11 +10,11 @@ import AddRide from "./Components/CarOwnerComponents/AddRide";
 //import CarOwnerNav from "./Components/CarOwnerComponents/CarOwnerNav";
 import AdminLandingPage from "./Components/AdminLandingPage";
 import ViewUser from "./Components/AdminFuncCompo/ViewUser";
-import DeleteRide from "./Components/AdminFuncCompo/DeleteRide";
 import StatusUpdate from "./Components/AdminFuncCompo/StatusUpdate";
 import About from "./Components/About";
 import ViewRides from "./Components/AdminFuncCompo/ViewRides";
 import Payment from "./Components/CarUserComponents/Payment";
+import EditBooking from "./Components/CarOwnerComponents/EditBooking";
 import RegUser from "./Components/RegUser";
 import ViewPayment from "./Components/AdminFuncCompo/ViewPayment";
 import PassengerReview from "./Components/AdminFuncCompo/Passenger_Review";
@@ -25,6 +25,7 @@ import Review from "./Components/CarUserComponents/Review";
 import Contact from "./Components/Contact";
 import logo from "./Assests/logo.jpg";
 import HomePage from "./Components/HomePage";
+import AppNav from "./AppNav";
 
 function App() {
 
@@ -32,30 +33,33 @@ function App() {
  const mystate=useSelector((state)=>state.logged);
 
   return (
-    <div className="App">
-      <div style={{display:mystate.loggedIn?"none":"block"}}>
-        <div className="navigation" style={{ position: "relative" }}>
-          <div><img src={logo} alt="3"  width="100" height="65" /></div>
-          <div className="navigation_item">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="navigation_item">
-            <Link to="/Reg">Register</Link>
-          </div>
-          <div className="navigation_item">
-            <Link to="/about">About</Link>
-          </div>
-          <div className="navigation_item">
-            <Link to="/contact">Contact</Link>
-          </div>
-          <div
-            className="navigation_item"
-            style={{ position: "absolute", right: "0" }}>
-            <Link to="/login">Login</Link>
-          </div>
-        </div>
-      </div>
-      <header className="App-header">
+     <div className="App">
+       <div style={{display:mystate.loggedIn?"none":"block"}}>
+         <div className="navigation" style={{ position: "relative" }}>
+           <div><img src={logo} alt="3"  width="100" height="65" /></div>
+           <div className="navigation_item">
+             <Link to="/">Home</Link>
+           </div>
+           <div className="navigation_item">
+             <Link to="/Reg">Register</Link>
+           </div>
+           <div className="navigation_item">
+             <Link to="/about">About</Link>
+           </div>
+           <div className="navigation_item">
+             <Link to="/contact">Contact</Link>
+           </div>
+           {/* <div className="navigation_item">
+             <Link to="/contact">View Reviews</Link>
+           </div> */}
+           <div
+             className="navigation_item"
+             style={{ position: "absolute", right: "0" }}>
+             <Link to="/login">Login</Link>
+           </div>
+         </div>
+       </div>
+    <header className="App-header">
         <Routes>
           <Route path="/" element={<HomePage/>}></Route>
           <Route path="/reg" element={<RegUser/>}></Route>
@@ -82,12 +86,10 @@ function App() {
           <Route path="/ViewPayment" element={<ViewPayment/>}></Route>
           <Route path="/PassengersReviews" element={<PassengerReview/>}></Route>
           <Route path="/ViewAllBooking" element={<ViewAllBooking/>}></Route>
-          <Route path="/deleteRide" element={<DeleteRide/>}></Route>
+          <Route path="/Edit" element={<EditBooking/>}></Route>
         </Routes>
       </header>
     </div>
-    
   );
 }
-
 export default App;

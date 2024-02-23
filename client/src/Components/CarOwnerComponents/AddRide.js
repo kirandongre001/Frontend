@@ -3,6 +3,13 @@ import { useEffect, useReducer, useState } from "react";
 import CarOwnerNav from "./CarOwnerNav";
 import { useNavigate } from "react-router-dom";
 import addRideImage from "../../Assests/AddRide.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 const initialStateRide = {
   s_city: null,
@@ -87,6 +94,7 @@ export default function AddRide() {
       });
   };
   return (
+    <div>
     <div className="rideForm">
       <CarOwnerNav />
       <h3
@@ -322,11 +330,31 @@ export default function AddRide() {
 
           
         </>
-      )}
+            )}
       <div className="AddRideImg">
             <img src={addRideImage} alt="addRide Image"></img>
       </div>
       {/* <p>{JSON.stringify(ride)}</p> */}
+      </div>
+      <footer>
+        <div className="container4">
+          <p>
+            &copy; 2024 SWIFT RIDES. All rights reserved.
+          </p>
+          <a href="https://www.youtube.com/" className="youtube social">
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
+          </a>
+          <a href="https://www.facebook.com/" className="facebook social">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com/" className="twitter social">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com/" className="instagram social">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>{" "}
+        </div>
+      </footer>
       </div>
   );
 }

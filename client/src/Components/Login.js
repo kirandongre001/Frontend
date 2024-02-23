@@ -4,7 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Banner_Logo from "../Assests/Banner_Logo.svg";
 import "./modules.css";
 import { useDispatch } from "react-redux";
-import  {login} from './slice'
+import  {login} from './slice';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 const initialState = {
   email: "",
   pwd: "",
@@ -77,6 +84,7 @@ let Login = () => {
   }
 
   return (
+    <div>
     <div className="Login">
       <div className="banner_login">
         <img src={Banner_Logo} />
@@ -137,6 +145,26 @@ let Login = () => {
           </fieldset>
       </div>
     </div>
+      <footer>
+        <div className="container4">
+          <p>
+            &copy; 2024 SWIFT RIDES. All rights reserved.
+          </p>
+          <a href="https://www.youtube.com/" className="youtube social">
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
+          </a>
+          <a href="https://www.facebook.com/" className="facebook social">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com/" className="twitter social">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com/" className="instagram social">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>{" "}
+        </div>
+      </footer>
+      </div>
   );
 };
 

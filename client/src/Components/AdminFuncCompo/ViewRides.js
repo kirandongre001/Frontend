@@ -3,6 +3,15 @@ import { Button, Card, Carousel, Col, Row, Select } from "antd";
 // import StatusUpdate from './StatusUpdate';
 import { useNavigate } from "react-router-dom";
 import AdminNav from "./AdminNav";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faYoutube,
+    faFacebook,
+    faTwitter,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+
 export default function ViewRides() {
   const [rides, setRides] = useState([]);
   // const admin = JSON.parse(localStorage.getItem("loggedAdmin"));
@@ -63,7 +72,13 @@ export default function ViewRides() {
 //         .then((res) => res.json())
 //         .then((bookings) => { setBookings(bookings); if (bookings.length > 0) setFlag(true) })
 
-// }, [])
+// }, [])9
+const deleteHandler =async  (e) =>{
+  const pid = e.target.value;
+  const response = await  axios.delete(`http://localhost:8080/deleteRide/${pid}`)
+  console.log(response)
+  window.location.reload()
+}
 
   return (
     <div>
@@ -89,6 +104,7 @@ export default function ViewRides() {
             <th className="text-center">Time of arrival</th>
             <th className="text-center">Check</th>
             <th className="text-center">status</th>
+            <th className="text-center">Action</th>
           
           </tr>
         </thead>
@@ -115,23 +131,42 @@ export default function ViewRides() {
                   <a href="https://www.rtovehicleinformation.com/">RTO</a>
                 </td>
                 <td className="text-center">{v.status}</td>
-                {/* <td>
+                <td>
                   <button
                     type="button"
+                    value={v.id}
                     name="btn"
                     id="delete"
                     className="btn btn-danger"
-                    onClick={() => { navigate("/deleteRide");
-                    }}
+                    onClick={deleteHandler}
                   >
                     Cancel
-                  </button> */}
-                
+                  </button>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+      <footer>
+        <div className="container4">
+          <p>
+            &copy; 2024 SWIFT RIDES. All rights reserved.
+          </p>
+          <a href="https://www.youtube.com/" className="youtube social">
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
+          </a>
+          <a href="https://www.facebook.com/" className="facebook social">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com/" className="twitter social">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com/" className="instagram social">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>{" "}
+        </div>
+      </footer>
     </div>
   );
 }
